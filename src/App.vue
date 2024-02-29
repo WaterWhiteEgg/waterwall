@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import AboutView from './views/AboutView.vue';
+import HomeView from './views/HomeView.vue';
+import { ref } from 'vue'
+const a = ref("#000000")
 </script>
 
 <template>
-
-
+  <div class="qq">11</div>
+  <AboutView ></AboutView>
+  <HomeView ></HomeView>
   <RouterView />
 </template>
 
 <style scoped>
+.qq{
+  background-color:v-bind(a);
+}
 header {
   line-height: 1.5;
   max-height: 100vh;

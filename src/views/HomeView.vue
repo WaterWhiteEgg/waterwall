@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, type Ref } from "vue";
+import Bus from "../bus"
 const array = ref([[7, 2, 2, 4, 5, 3, 3, 5, 9], [1, 5, 3, 4, 5, 6, 7, 8, 3], [6, 2, 3, 4, 5, 6, 7, 8, 9], [6, 2, 3, 4, 3, 6, 7, 8, 9], [1, 3, 3, 2, 5, 6, 7, 3, 9], [6, 2, 3, 4, 5, 3, 7, 8, 3], [7, 2, 2, 4, 5, 3, 3, 5, 9], [3, 2, 3, 4, 5, 1, 7, 8, 4], [4, 2, 3, 4, 5, 1, 7, 8, 9], [1, 3, 3, 2, 5, 6, 7, 3, 9], [3, 2, 3, 4, 5, 6, 3, 2, 9], [5, 2, 3, 4, 1, 6, 7, 8, 5], [1, 4, 3, 6, 5, 6, 7, 8, 2]])
 // 判断index2是否重新循环了一遍，若是返回一个新的随机值
 // 全局记录随机值
@@ -18,6 +19,8 @@ const out: Ref<HTMLDivElement | undefined> = ref()
 const scroll = (e: UIEvent) => {
   // console.log(e.target as HTMLDivElement);
   const element = e.target as HTMLDivElement;
+  // 发送给兄弟组件
+  Bus.emits("scrollTo", element.scrollTop)
   // console.log(element.scrollHeight - element.scrollTop, element.clientHeight);
   if (element.scrollHeight - element.scrollTop <= element.clientHeight + 1) {
     console.log("触底");
