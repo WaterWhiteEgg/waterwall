@@ -1,8 +1,11 @@
+
+
 <script setup lang="ts">
+
 import { RouterLink, RouterView } from 'vue-router'
 import AboutView from './views/AboutView.vue';
 import HomeView from './views/HomeView.vue';
-import { ref } from 'vue'
+import { ref ,Directive} from 'vue'
 const a = ref("#000000")
 </script>
 
